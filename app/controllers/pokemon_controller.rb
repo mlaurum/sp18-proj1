@@ -15,7 +15,7 @@ class PokemonController < ApplicationController
 			@pokemon.destroy
 		end
 		@pokemon.save
-		redirect_to root_path
+		redirect_to controller: 'trainers', action: 'show', id:current_trainer.id
 	end
 
 	def add
