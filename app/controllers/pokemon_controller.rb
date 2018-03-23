@@ -33,9 +33,10 @@ class PokemonController < ApplicationController
 	 		@pokemon.trainer = current_trainer
 			@pokemon.save
 			redirect_to '/trainers'
+		else
+			flash[:error] = @pokemon.errors.full_messages.to_sentence
+			render "new.html.erb"
 		end
-		flash[:error] = @pokemon.errors.full_messages.to_sentence
-		render "new.html.erb"
  	end
  	private
  	def pokemon_params
