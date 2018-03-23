@@ -3,7 +3,9 @@
 <p>Email: <%= @trainer.email if @trainer.email %></p>
 <% @trainer.pokemons.each do |p| %>
 	<%= button_to "Damage!", damage_path(id: p), :class => "button medium", :method => :patch %>
-	<%= p.health %>
+	<li> level: <%= p.level %> </li>
+	<li> name: <%= p.name %>  </li>
+	<li> hp: <%= p.health %>  </li>
 	<%= image_tag("pokemon/#{p.ndex}.png", alt: "pokemon") %>
 <% end %>
 <%= link_to "add a pokemon", add_path(id: current_trainer), :class => "button medium", :method => :get %>
